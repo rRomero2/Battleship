@@ -3,11 +3,11 @@ import sys
 from Player import play_game_1, play_game_2
 exit_inputs = ['Exit', 'exit', 'E', 'e', 'EXIT', 'QUIT', 'Quit', 'quit', 'Q', 'q']
 
+
 # Game Play Related Functions
 def start_screen():
     start_inputs = ['Start', 'start', 's', 'S', 'START']
     instruction_inputs = ['Instructions', 'instructions', 'I', 'i', 'INSTRUCTIONS']
-    exit_inputs = ['Exit', 'exit', 'E', 'e', 'EXIT']
     yes_commands = ['Yes', 'yes', 'y', 'Y', 'YES']
     no_commands = ['No', 'no', 'n', 'N', 'NO']
 

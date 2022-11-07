@@ -280,6 +280,7 @@ def play_game_2():
     print_board(player_board_ships)
     place_user_ships("Paddle boat", 2)
     print_board(player_board_ships)
+    print("Game coming soon...")
 
 
 def stats():
