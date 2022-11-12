@@ -111,3 +111,7 @@ submarine.placing()
 paddle = place_ship("Paddle Boat", 2)
 paddle.position()
 paddle.placing()
+
+
+def computer_guess():
+    print("Coming soon...")

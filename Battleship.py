@@ -77,17 +77,17 @@ def game_choice():
     while True:
         game_choice = input("\nEnter Choice [1/2]: ")
         if game_choice == "1":
-            level_choice()
+            level_choice(game_choice)
             break
         elif game_choice == "2":
             print("Normal - Coming Soon")
-            play_game_2()
+            level_choice(game_choice)
             break
         else:
             print("I don't understand. Please enter 1 or 2.")
 
 
-def level_choice():
+def level_choice(game):
     print("Difficulty".center(45, '-'))
     print("1. Free Play (Unlimited Guesses)")
     print("2. Limited Number of Guesses")
@@ -95,18 +95,21 @@ def level_choice():
     limited_guesses = False
     while True:
         level_choice = input("\nEnter Choice: ")
-        if level_choice == "1":
+        if level_choice == "1" and game == "1":
             play_game_1(False, None)
+            break
+        elif level_choice == "1" and game == "2":
+            play_game_2(False, None)
             break
         elif level_choice == "2":
             limited_guesses = True
-            guesses_difficulty()
+            guesses_difficulty(game)
             break
         else:
             print("I don't understand. Please enter a number from 1-3.")
 
 
-def guesses_difficulty():
+def guesses_difficulty(game):
     print("Limited Number of Guesses Difficulty".center(25, '-'))
     print("1. Easy: 90 Guesses")
     print("2. Medium: 70 Guesses")
@@ -116,32 +119,52 @@ def guesses_difficulty():
     while True:
         guesses_choice = input("\nEnter Choice: ")
         if guesses_choice == "1":
-            play_game_1(True, 100)
-            break
+            if game == "1":
+                play_game_1(True, 100)
+                break
+            else:
+                play_game_2(True, 100)
+                break
         elif guesses_choice == "2":
-            play_game_1(True, 70)
-            break
+            if game == "1":
+                play_game_1(True, 70)
+                break
+            else:
+                play_game_2(True, 70)
+                break
         elif guesses_choice == "3":
-            play_game_1(True, 45)
-            break
+            if game == "1":
+                play_game_1(True, 45)
+                break
+            else:
+                play_game_2(True, 45)
+                break
         elif guesses_choice == "4":
-            play_game_1(True, 30)
-            break
+            if game == "1":
+                play_game_1(True, 30)
+                break
+            else:
+                play_game_2(True, 30)
+                break
         elif guesses_choice == "5":
-            pick_max_guesses()
+            pick_max_guesses(game)
             break
         else:
             print("I don't understand. Please enter a number from 1-5.")
 
 
-def pick_max_guesses():
+def pick_max_guesses(game):
     while True:
         guesses_input = input("Enter the maximum number of guesses you would like to play with: ")
         if guesses_input.isdigit() and int(guesses_input) > 0:
             guesses_max = int(guesses_input)
             print(guesses_max)
-            play_game_1(True, guesses_max)
-            break
+            if game == "1":
+                play_game_1(True, guesses_max)
+                break
+            else:
+                play_game_2(True, guesses_max)
+                break
         else:
             print("Maximum number of guesses must be a number greater than 0.")
 
